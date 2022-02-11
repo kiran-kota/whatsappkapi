@@ -1,0 +1,33 @@
+{
+  "name": "whatsappkapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "keywords": [
+    "whatsappjs",
+    "nodejs"
+  ],
+  "author": "Kiran Kota",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-fileupload": "^1.3.1",
+    "express-validator": "^6.14.0",
+    "http": "^0.0.1-security",
+    "mime-types": "^2.1.34",
+    "qrcode": "^1.5.0",
+    "qrcode-terminal": "^0.12.0",
+    "socket.io": "^2.3.0",
+    "whatsapp-web.js": "^1.15.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
