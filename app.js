@@ -111,15 +111,15 @@ const createSession = function(id){
     client.on('disconnected', (reason) => {
         io.emit('disconnected', {id: id});
         io.emit('message', {id: id, text: 'Whatsapp is disconnected'});
-        fs.unlinkSync(SESSION_FILE_PATH, (err) => {
-            if (err) {
-                console.error(err);
-            }
-        });
-        sessions = sessions.filter(x=>x.id != id);
-        var savedSessions = getSessionsFile();
-        savedSessions = savedSessions.filter(x=>x.id != id);
-        setSessionsFile(savedSessions);
+        // fs.unlinkSync(SESSION_FILE_PATH, (err) => {
+        //     if (err) {
+        //         console.error(err);
+        //     }
+        // });
+        // sessions = sessions.filter(x=>x.id != id);
+        // var savedSessions = getSessionsFile();
+        // savedSessions = savedSessions.filter(x=>x.id != id);
+        // setSessionsFile(savedSessions);
         client.destroy();
         client.initialize();
     });
