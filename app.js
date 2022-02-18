@@ -152,15 +152,21 @@ app.post('/send-message', async (req, res)=>{
     const number = phoneNumberFormatter(req.body.number);
     const message = req.body.message;
     const sender = req.body.sender;
+    // const url = req.body.url
 
     try {
         const client = sessions.find(x=>x.id == sender).client;
         const isRegisteredNumber = await checkRegisteredNumber(number, client);
         if(!isRegisteredNumber){
-            return res.status(422).json({status: false, message: 'The number is not registered'});
+            return res.status(200).json({status: false, message: 'The number is not registered'});
         }
-        const result = await client.sendMessage(number, message);
-        return res.status(200).json(result);
+       
+        await client.sendMessage(number, message);
+        // if(url != undefined){
+        //     const media = await MessageMedia.fromUrl('https://via.placeholder.com/350x150.png');
+        //     await client.sendMessage(number, media);
+        // }
+        return res.status(200).json({status: true, message: 'message sent successfully'});
     } catch (error) {
         console.log(error);
         return res.status(422).json(error);
